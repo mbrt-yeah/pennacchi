@@ -35,9 +35,9 @@
     "typescript": "^4.4.2"
   },
   "dependencies": {
-    "@pennacchi/ancora": "^1.0.0",
-    "@pennacchi/core": "^1.0.0",
-    "@pennacchi/core-content-object": "^1.0.0"
+    "@pennacchi/ancora": "^0.0.0",
+    "@pennacchi/core": "^0.0.0",
+    "@pennacchi/core-content-object": "^0.0.0"
   },
   "scripts": {
     "test": "jest"
