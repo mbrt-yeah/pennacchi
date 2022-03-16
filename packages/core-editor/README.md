@@ -1,0 +1,1 @@
+# Project Pennacchi :: Core Editor

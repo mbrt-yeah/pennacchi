@@ -1,0 +1,45 @@
+{
+  "name": "@pennacchi/content-object-tool-move-up",
+  "version": "0.1.0",
+  "description": "",
+  "author": "Matthias Einbrodt",
+  "license": "MIT",
+  "keywords": [
+    "content object move up",
+    "replace",
+    "pennacchi",
+    "typescript"
+  ],
+  "homepage": "https://github.com/mbrt-yeah/project-pennacchi.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mbrt-yeah/project-pennacchi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mbrt-yeah/project-pennacchi.git/issues"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "devDependencies": {
+    "@babel/core": "^7.16.12",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-typescript": "^7.16.7",
+    "@types/jest": "^27.4.0",
+    "@types/node": "^16.7.10",
+    "babel-jest": "^27.4.6",
+    "gulp": "^4.0.2",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "jest": "^27.4.7",
+    "rimraf": "^3.0.2",
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.2"
+  },
+  "dependencies": {
+    "@pennacchi/ancora": "^1.0.0",
+    "@pennacchi/core": "^1.0.0",
+    "@pennacchi/core-content-object": "^1.0.0"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}

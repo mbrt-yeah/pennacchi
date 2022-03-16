@@ -1,0 +1,31 @@
+import { SimpleMap } from "../types/simple-map";
+import { EventNameCore } from "../types/event-name-core";
+
+export const EventMapCore: SimpleMap<EventNameCore, EventNameCore> = {
+    "pnncch::appendchild":          "pnncch::appendchild",
+    "pnncch::click":                "pnncch::click",
+    "pnncch::contentobjectready":   "pnncch::contentobjectready",
+    "pnncch::delete":               "pnncch::delete",
+    "pnncch::enableeditmode":       "pnncch::enableeditmode",
+    "pnncch::enableviewmode":       "pnncch::enableviewmode",
+    "pnncch::focus":                "pnncch::focus",
+    "pnncch::focusin":              "pnncch::focusin",
+    "pnncch::focusout":             "pnncch::focusout",
+    "pnncch::focussiblingnext":     "pnncch::focussiblingnext",
+    "pnncch::focussiblingprevious": "pnncch::focussiblingprevious",
+    "pnncch::input":                "pnncch::input",
+    "pnncch::insertelementafter":   "pnncch::insertelementafter",
+    "pnncch::insertelementbefore":  "pnncch::insertelementbefore",
+    "pnncch::insertlinebreak":      "pnncch::insertlinebreak",
+    "pnncch::insertparagraphafter": "pnncch::insertparagraphafter",
+    "pnncch::insertsiblingafter":   "pnncch::insertsiblingafter",
+    "pnncch::insertsiblingbefore":  "pnncch::insertsiblingbefore",
+    "pnncch::inserttext":           "pnncch::inserttext",
+    "pnncch::keydown":              "pnncch::keydown",
+    "pnncch::keyup":                "pnncch::keyup",
+    "pnncch::movedown":             "pnncch::movedown",
+    "pnncch::moveup":               "pnncch::moveup",
+    "pnncch::replace":              "pnncch::replace",
+    "pnncch::resize":               "pnncch::resize",
+    "pnncch::saveas":               "pnncch::saveas",
+};

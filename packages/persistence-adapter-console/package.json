@@ -1,0 +1,36 @@
+{
+    "name": "@pennacchi/persistence-adapter-console",
+    "version": "0.1.0",
+    "description": "",
+    "author": "Matthias Einbrodt",
+    "license": "MIT",
+    "keywords": [
+        "adapter",
+        "console",
+        "persistence",
+        "pennacchi",
+        "typescript"
+    ],
+    "homepage": "https://github.com/mbrt-yeah/project-pennacchi.git",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mbrt-yeah/project-pennacchi.git"
+    },
+    "bugs": {
+        "url": "https://github.com/mbrt-yeah/project-pennacchi.git/issues"
+    },
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "devDependencies": {
+        "@types/node": "^16.7.10",
+        "gulp": "^4.0.2",
+        "gulp-typescript": "^6.0.0-alpha.1",
+        "intern": "^4.10.0",
+        "rimraf": "^3.0.2",
+        "tslib": "^2.3.1",
+        "typescript": "^4.4.2"
+    },
+    "dependencies": {
+        "@pennacchi/core": "^1.0.0"
+    }
+}

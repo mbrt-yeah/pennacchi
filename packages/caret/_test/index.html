@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test Caret</title>
+    </head>
+    <body>
+        
+        <p id="element" contenteditable="true">abcd<strong>de<em>fg</em></strong></p>
+
+        <button type="button" id="setToStart">Set to start</button>
+
+        <button type="button" id="setToEnd">Set to end</button>
+
+        <script type="module">
+            import { Caret } from "http://127.0.0.1:8887/dist/caret.js?cachebreaker=1";
+
+            const element = document.getElementById("element");
+            const setToEndElement = document.getElementById("setToEnd");
+            const setToStartElement = document.getElementById("setToStart");
+
+            const caret = new Caret(element);
+
+            setToStartElement.addEventListener("click", (event) => {
+                caret.setToStart();
+            });
+
+            setToEndElement.addEventListener("click", (event) => {
+                caret.setToEnd();
+            });
+
+            /*
+            element.addEventListener("click", (event) => {
+                console.log(`Position: ${window.caret.position}`);
+                console.log(`Text Length: ${window.caret.textLength}`);
+            });
+
+            element.addEventListener("keyup", (event) => {
+                console.log(`Position: ${window.caret.position}`);
+                console.log(`Text Length: ${window.caret.textLength}`);
+            });
+            */
+        </script>
+    </body>
+</html>
