@@ -1,6 +1,6 @@
 {
   "name": "@pennacchi/core-content-object",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "",
   "author": "Matthias Einbrodt",
   "license": "MIT",
@@ -37,9 +37,9 @@
     "typescript": "^4.4.2"
   },
   "dependencies": {
-    "@pennacchi/caret": "^0.0.0",
-    "@pennacchi/core": "^0.0.0",
-    "@pennacchi/text-selection": "^0.0.0",
+    "@pennacchi/caret": "^0.1.0",
+    "@pennacchi/core": "^0.1.0",
+    "@pennacchi/text-selection": "^0.1.0",
     "lit": "^2.1.2"
   },
   "scripts": {
