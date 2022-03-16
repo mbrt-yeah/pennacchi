@@ -36,9 +36,9 @@
   },
   "dependencies": {
     "@lit/localize": "^0.11.2",
-    "@pennacchi/content-object-paragraph": "^1.0.0",
-    "@pennacchi/core": "^1.0.0",
-    "@pennacchi/core-content-object": "^1.0.0",
+    "@pennacchi/content-object-paragraph": "^0.0.0",
+    "@pennacchi/core": "^0.0.0",
+    "@pennacchi/core-content-object": "^0.0.0",
     "lit": "^2.1.2"
   },
   "scripts": {

@@ -40,6 +40,6 @@
     "test": "jest"
   },
   "dependencies": {
-    "@pennacchi/core": "workspace:^1.0.0"
+    "@pennacchi/core": "^0.0.0"
   }
 }

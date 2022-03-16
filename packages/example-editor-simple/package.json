@@ -31,20 +31,20 @@
         "typescript": "^4.4.2"
     },
     "dependencies": {
-        "@pennacchi/content-object-blockquote": "^1.0.0",
-        "@pennacchi/content-object-heading-1": "^1.0.0",
-        "@pennacchi/content-object-heading-2": "^1.0.0",
-        "@pennacchi/content-object-paragraph": "^1.0.0",
-        "@pennacchi/content-object-tool-move-down": "^1.0.0",
-        "@pennacchi/content-object-tool-move-up": "^1.0.0",
-        "@pennacchi/content-object-tool-remove": "^1.0.0",
-        "@pennacchi/content-object-tool-replace": "^1.0.0",
-        "@pennacchi/core": "^1.0.0",
-        "@pennacchi/core-content-object": "^1.0.0",
-        "@pennacchi/core-editor": "^1.0.0",
-        "@pennacchi/editor-tool-change-mode": "^1.0.0",
-        "@pennacchi/editor-tool-save": "^1.0.0",
-        "@pennacchi/icon-set": "^1.0.0",
-        "@pennacchi/persistence-adapter-console": "^1.0.0"
+        "@pennacchi/content-object-blockquote": "^0.0.0",
+        "@pennacchi/content-object-heading-1": "^0.0.0",
+        "@pennacchi/content-object-heading-2": "^0.0.0",
+        "@pennacchi/content-object-paragraph": "^0.0.0",
+        "@pennacchi/content-object-tool-move-down": "^0.0.0",
+        "@pennacchi/content-object-tool-move-up": "^0.0.0",
+        "@pennacchi/content-object-tool-remove": "^0.0.0",
+        "@pennacchi/content-object-tool-replace": "^0.0.0",
+        "@pennacchi/core": "^0.0.0",
+        "@pennacchi/core-content-object": "^0.0.0",
+        "@pennacchi/core-editor": "^0.0.0",
+        "@pennacchi/editor-tool-change-mode": "^0.0.0",
+        "@pennacchi/editor-tool-save": "^0.0.0",
+        "@pennacchi/icon-set": "^0.0.0",
+        "@pennacchi/persistence-adapter-console": "^0.0.0"
     }
 }
