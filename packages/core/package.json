@@ -1,6 +1,6 @@
 {
   "name": "@pennacchi/core",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "",
   "author": "Matthias Einbrodt",
   "license": "MIT",
@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@lit/localize": "^0.11.2",
-    "@pennacchi/ancora": "^0.0.0",
+    "@pennacchi/ancora": "^0.1.0",
     "dompurify": "^2.3.6",
     "dot-prop": "^7.2.0",
     "lit": "^2.1.2",
