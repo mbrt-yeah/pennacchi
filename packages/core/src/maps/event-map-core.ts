@@ -28,4 +28,6 @@ export const EventMapCore: SimpleMap<EventNameCore, EventNameCore> = {
     "pnncch::replace":              "pnncch::replace",
     "pnncch::resize":               "pnncch::resize",
     "pnncch::saveas":               "pnncch::saveas",
+    "pnncch::selectionchange":      "pnncch::selectionchange",
+    "pnncch::selectstart":          "pnncch::selectstart",
 };

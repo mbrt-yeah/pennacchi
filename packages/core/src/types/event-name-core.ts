@@ -24,4 +24,6 @@ export type EventNameCore =
     | "pnncch::moveup"
     | "pnncch::replace"
     | "pnncch::resize"
-    | "pnncch::saveas";
+    | "pnncch::saveas"
+    | "pnncch::selectionchange"
+    | "pnncch::selectstart";
