@@ -91,6 +91,29 @@ export abstract class ContentObject extends GUIElement implements IContentObject
     }
 
     private registerEventListener(): ContentObject {
+        document.addEventListener("selectstart", (event: Event): void => {
+            event.stopPropagation();
+
+            this.DOMApi.dispatchCustomEvent<ContentObject>(
+                EventMapCore["pnncch::selectstart"], 
+                this
+            );
+
+            return;
+        });
+
+        document.addEventListener("selectionchange", (): void => {
+            if ( !this.__textSelection.isInContextObject() )
+                return;
+
+            this.DOMApi.dispatchCustomEvent<ContentObject>(
+                EventMapCore["pnncch::selectionchange"], 
+                this
+            );
+
+            return;
+        });
+
         this.addEventListener("click", (): void => {
             this.DOMApi.dispatchCustomEvent<ContentObject>(EventMapCore["pnncch::click"], this);
             return;
