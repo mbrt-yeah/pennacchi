@@ -103,7 +103,7 @@ export abstract class ContentObject extends GUIElement implements IContentObject
         });
 
         document.addEventListener("selectionchange", (): void => {
-            if ( !this.__textSelection.isInContextObject() )
+            if ( !this.__textSelection.isInContextObject() || this.__textSelection.isEmpty() )
                 return;
 
             this.DOMApi.dispatchCustomEvent<ContentObject>(
