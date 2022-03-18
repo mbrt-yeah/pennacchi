@@ -19,9 +19,11 @@ import { IEditorOptions } from "./i-editor-options";
 import { IEditorToolbarContentObject } from "../editor-toolbar-content-object/i-editor-toolbar-content-object";
 import { IEditorToolbarInlineFormatting } from "../editor-toolbar-inline-formatting/i-editor-toolbar-inline-formatting";
 import { KeyboardEventPayload } from "@pennacchi/core-content-object/dist/event-payloads/keyboard-event-payload";
+import { TextSelection } from "@pennacchi/text-selection/dist/text-selection";
 
 import "@pennacchi/component-library/dist/buttons/button";
 import "@pennacchi/component-library/dist/icons/icon-svg";
+import { IContentObject } from "@pennacchi/core-content-object";
 
 @customElement("pnncch-editor")
 export class Editor extends EditorGUIElement implements IEditor {
@@ -85,6 +87,14 @@ export class Editor extends EditorGUIElement implements IEditor {
             return this.handlePnncchKeydownEvent(event as CustomEvent<KeyboardEventPayload>);
         });
 
+        this.addEventListener(EventMapCore["pnncch::selectstart"], (event: Event): void => {
+            return this.handlePnncchSelectStartEvent(event as CustomEvent<ContentObject>);
+        });
+
+        this.addEventListener(EventMapCore["pnncch::selectionchange"], (event: Event): void => {
+            return this.handlePnncchSelectionChangeEvent(event as CustomEvent<ContentObject>);
+        });
+
         return this;
     }
 
@@ -118,6 +128,7 @@ export class Editor extends EditorGUIElement implements IEditor {
         event.stopPropagation();
 
         this.hideContentObjectToolbar();
+        this.toolbarInlineFormatting.hide();
 
         if (event.detail && event.detail.key === "Enter" && event.target) {
             this.insertContentObjectAfter(
@@ -126,6 +137,27 @@ export class Editor extends EditorGUIElement implements IEditor {
             );
             return;
         }
+    }
+
+    private handlePnncchSelectStartEvent(event: CustomEvent<ContentObject>): void {
+        event.preventDefault();
+        event.stopPropagation();
+        this.toolbarInlineFormatting.hide();
+    }
+
+    private handlePnncchSelectionChangeEvent(event: CustomEvent<ContentObject>): void {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const contentObject = event.detail;
+
+        if (!contentObject || !contentObject.textSelection || contentObject.textSelection.isEmpty()) {
+            this.toolbarInlineFormatting.hide();
+            return;
+        }
+
+        this.toolbarInlineFormatting.show(contentObject);
+        return;
     }
 
     private insertContentObjectAfter(
@@ -152,7 +184,7 @@ export class Editor extends EditorGUIElement implements IEditor {
         return;
     }
 
-    private showContentObjectToolbar(contentObject: ContentObject): void {
+    private showContentObjectToolbar(contentObject: IContentObject): void {
         if (!this.__toolbarContentObject)
             return;
 
@@ -293,7 +325,7 @@ export class Editor extends EditorGUIElement implements IEditor {
     }
 
     public isToolbarContentObjectVisible(): boolean {
-        return this.__toolbarContentObject && this.__toolbarContentObject.visibility !== "visible";
+        return this.__toolbarContentObject && this.__toolbarContentObject.visibility === "visible";
     }
 
     public isToolbarInlineFormattingActived(): boolean {
@@ -301,6 +333,6 @@ export class Editor extends EditorGUIElement implements IEditor {
     }
 
     public isToolbarInlineFormattingVisible(): boolean {
-        return this.__toolbarInlineFormatting && this.__toolbarInlineFormatting.visibility !== "visible";
+        return this.__toolbarInlineFormatting && this.__toolbarInlineFormatting.visibility === "visible";
     }
 };

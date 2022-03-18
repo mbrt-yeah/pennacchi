@@ -51,9 +51,9 @@ importers:
   packages/component-library:
     specifiers:
       '@lit/localize': ^0.11.2
-      '@pennacchi/ancora': workspace:^1.0.0
-      '@pennacchi/core': ^1.0.0
-      '@pennacchi/css-rules-generator': ^1.0.0
+      '@pennacchi/ancora': ^0.1.0
+      '@pennacchi/core': ^0.1.0
+      '@pennacchi/css-rules-generator': ^0.1.0
       '@types/node': ^16.7.10
       esbuild: ^0.13.1
       gulp: ^4.0.2
@@ -89,9 +89,9 @@ importers:
       '@babel/preset-env': ^7.16.11
       '@babel/preset-typescript': ^7.16.7
       '@lit/localize': ^0.11.2
-      '@pennacchi/content-object-paragraph': ^1.0.0
-      '@pennacchi/core': ^1.0.0
-      '@pennacchi/core-content-object': ^1.0.0
+      '@pennacchi/content-object-paragraph': ^0.1.0
+      '@pennacchi/core': ^0.1.0
+      '@pennacchi/core-content-object': ^0.1.0
       '@types/jest': ^27.4.0
       '@types/node': ^16.7.10
       babel-jest: ^27.4.6
@@ -128,8 +128,8 @@ importers:
       '@babel/preset-env': ^7.16.11
       '@babel/preset-typescript': ^7.16.7
       '@lit/localize': ^0.11.2
-      '@pennacchi/core': ^1.0.0
-      '@pennacchi/core-content-object': ^1.0.0
+      '@pennacchi/core': ^0.1.0
+      '@pennacchi/core-content-object': ^0.1.0
       '@types/jest': ^27.4.0
       '@types/node': ^16.7.10
       babel-jest: ^27.4.6
@@ -164,8 +164,8 @@ importers:
       '@babel/core': ^7.16.12
       '@babel/preset-env': ^7.16.11
       '@babel/preset-typescript': ^7.16.7
-      '@pennacchi/core': ^1.0.0
-      '@pennacchi/core-content-object': ^1.0.0
+      '@pennacchi/core': ^0.1.0
+      '@pennacchi/core-content-object': ^0.1.0
       '@types/jest': ^27.4.0
       '@types/node': ^16.7.10
       babel-jest: ^27.4.6
@@ -199,8 +199,8 @@ importers:
       '@babel/core': ^7.16.12
       '@babel/preset-env': ^7.16.11
       '@babel/preset-typescript': ^7.16.7
-      '@pennacchi/core': ^1.0.0
-      '@pennacchi/core-content-object': ^1.0.0
+      '@pennacchi/core': ^0.1.0
+      '@pennacchi/core-content-object': ^0.1.0
       '@types/jest': ^27.4.0
       '@types/node': ^16.7.10
       babel-jest: ^27.4.6
@@ -234,9 +234,9 @@ importers:
       '@babel/core': ^7.16.12
       '@babel/preset-env': ^7.16.11
       '@babel/preset-typescript': ^7.16.7
-      '@pennacchi/ancora': ^1.0.0
-      '@pennacchi/core': ^1.0.0
-      '@pennacchi/core-content-object': ^1.0.0
+      '@pennacchi/ancora': ^0.1.0
+      '@pennacchi/core': ^0.1.0
+      '@pennacchi/core-content-object': ^0.1.0
       '@types/jest': ^27.4.0
       '@types/node': ^16.7.10
       babel-jest: ^27.4.6
@@ -269,9 +269,9 @@ importers:
       '@babel/core': ^7.16.12
       '@babel/preset-env': ^7.16.11
       '@babel/preset-typescript': ^7.16.7
-      '@pennacchi/ancora': ^1.0.0
-      '@pennacchi/core': ^1.0.0
-      '@pennacchi/core-content-object': ^1.0.0
+      '@pennacchi/ancora': ^0.1.0
+      '@pennacchi/core': ^0.1.0
+      '@pennacchi/core-content-object': ^0.1.0
       '@types/jest': ^27.4.0
       '@types/node': ^16.7.10
       babel-jest: ^27.4.6
@@ -304,9 +304,9 @@ importers:
       '@babel/core': ^7.16.12
       '@babel/preset-env': ^7.16.11
       '@babel/preset-typescript': ^7.16.7
-      '@pennacchi/ancora': ^1.0.0
-      '@pennacchi/core': ^1.0.0
-      '@pennacchi/core-content-object': ^1.0.0
+      '@pennacchi/ancora': ^0.1.0
+      '@pennacchi/core': ^0.1.0
+      '@pennacchi/core-content-object': ^0.1.0
       '@types/jest': ^27.4.0
       '@types/node': ^16.7.10
       babel-jest: ^27.4.6
@@ -339,9 +339,9 @@ importers:
       '@babel/core': ^7.16.12
       '@babel/preset-env': ^7.16.11
       '@babel/preset-typescript': ^7.16.7
-      '@pennacchi/ancora': ^1.0.0
-      '@pennacchi/core': ^1.0.0
-      '@pennacchi/core-content-object': ^1.0.0
+      '@pennacchi/ancora': ^0.1.0
+      '@pennacchi/core': ^0.1.0
+      '@pennacchi/core-content-object': ^0.1.0
       '@types/jest': ^27.4.0
       '@types/node': ^16.7.10
       babel-jest: ^27.4.6
@@ -375,7 +375,7 @@ importers:
       '@babel/preset-env': ^7.16.11
       '@babel/preset-typescript': ^7.16.7
       '@lit/localize': ^0.11.2
-      '@pennacchi/ancora': ^1.0.0
+      '@pennacchi/ancora': ^0.1.0
       '@types/dompurify': ^2.3.3
       '@types/jest': ^27.4.0
       '@types/mousetrap': ^1.6.9
@@ -421,9 +421,9 @@ importers:
       '@babel/core': ^7.16.12
       '@babel/preset-env': ^7.16.11
       '@babel/preset-typescript': ^7.16.7
-      '@pennacchi/caret': ^1.0.0
-      '@pennacchi/core': ^1.0.0
-      '@pennacchi/text-selection': ^1.0.0
+      '@pennacchi/caret': ^0.1.0
+      '@pennacchi/core': ^0.1.0
+      '@pennacchi/text-selection': ^0.1.0
       '@types/dompurify': ^2.3.3
       '@types/jest': ^27.4.0
       '@types/mousetrap': ^1.6.9
@@ -462,11 +462,13 @@ importers:
       '@babel/core': ^7.16.12
       '@babel/preset-env': ^7.16.11
       '@babel/preset-typescript': ^7.16.7
+      '@floating-ui/dom': ^0.4.1
       '@lit/localize': ^0.11.2
-      '@pennacchi/ancora': ^1.0.0
-      '@pennacchi/component-library': workspace:^1.0.0
-      '@pennacchi/core': ^1.0.0
-      '@pennacchi/core-content-object': workspace:^1.0.0
+      '@pennacchi/ancora': ^0.1.0
+      '@pennacchi/component-library': ^0.1.0
+      '@pennacchi/core': ^0.1.0
+      '@pennacchi/core-content-object': ^0.1.0
+      '@pennacchi/text-selection': ^0.1.0
       '@types/jest': ^27.4.0
       '@types/node': ^16.7.10
       babel-jest: ^27.4.6
@@ -478,11 +480,13 @@ importers:
       tslib: ^2.3.1
       typescript: ^4.4.2
     dependencies:
+      '@floating-ui/dom': 0.4.1
       '@lit/localize': 0.11.2
       '@pennacchi/ancora': link:../ancora
       '@pennacchi/component-library': link:../component-library
       '@pennacchi/core': link:../core
       '@pennacchi/core-content-object': link:../core-content-object
+      '@pennacchi/text-selection': link:../text-selection
       lit: 2.1.2
     devDependencies:
       '@babel/core': 7.16.12
@@ -500,7 +504,7 @@ importers:
 
   packages/css-rules-generator:
     specifiers:
-      '@pennacchi/core': ^1.0.0
+      '@pennacchi/core': ^0.1.0
       '@types/node': ^16.7.10
       esbuild: ^0.13.1
       gulp: ^4.0.2
@@ -530,9 +534,9 @@ importers:
       '@babel/core': ^7.16.12
       '@babel/preset-env': ^7.16.11
       '@babel/preset-typescript': ^7.16.7
-      '@pennacchi/ancora': ^1.0.0
-      '@pennacchi/core': ^1.0.0
-      '@pennacchi/core-editor': ^1.0.0
+      '@pennacchi/ancora': ^0.1.0
+      '@pennacchi/core': ^0.1.0
+      '@pennacchi/core-editor': ^0.1.0
       '@types/jest': ^27.4.0
       '@types/node': ^16.7.10
       babel-jest: ^27.4.6
@@ -565,9 +569,9 @@ importers:
       '@babel/core': ^7.16.12
       '@babel/preset-env': ^7.16.11
       '@babel/preset-typescript': ^7.16.7
-      '@pennacchi/ancora': ^1.0.0
-      '@pennacchi/core': ^1.0.0
-      '@pennacchi/core-editor': ^1.0.0
+      '@pennacchi/ancora': ^0.1.0
+      '@pennacchi/core': ^0.1.0
+      '@pennacchi/core-editor': ^0.1.0
       '@types/jest': ^27.4.0
       '@types/node': ^16.7.10
       babel-jest: ^27.4.6
@@ -597,21 +601,21 @@ importers:
 
   packages/example-editor-simple:
     specifiers:
-      '@pennacchi/content-object-blockquote': ^1.0.0
-      '@pennacchi/content-object-heading-1': ^1.0.0
-      '@pennacchi/content-object-heading-2': ^1.0.0
-      '@pennacchi/content-object-paragraph': ^1.0.0
-      '@pennacchi/content-object-tool-move-down': ^1.0.0
-      '@pennacchi/content-object-tool-move-up': ^1.0.0
-      '@pennacchi/content-object-tool-remove': ^1.0.0
-      '@pennacchi/content-object-tool-replace': ^1.0.0
-      '@pennacchi/core': ^1.0.0
-      '@pennacchi/core-content-object': ^1.0.0
-      '@pennacchi/core-editor': ^1.0.0
-      '@pennacchi/editor-tool-change-mode': ^1.0.0
-      '@pennacchi/editor-tool-save': ^1.0.0
-      '@pennacchi/icon-set': ^1.0.0
-      '@pennacchi/persistence-adapter-console': ^1.0.0
+      '@pennacchi/content-object-blockquote': ^0.1.0
+      '@pennacchi/content-object-heading-1': ^0.1.0
+      '@pennacchi/content-object-heading-2': ^0.1.0
+      '@pennacchi/content-object-paragraph': ^0.1.0
+      '@pennacchi/content-object-tool-move-down': ^0.1.0
+      '@pennacchi/content-object-tool-move-up': ^0.1.0
+      '@pennacchi/content-object-tool-remove': ^0.1.0
+      '@pennacchi/content-object-tool-replace': ^0.1.0
+      '@pennacchi/core': ^0.1.0
+      '@pennacchi/core-content-object': ^0.1.0
+      '@pennacchi/core-editor': ^0.1.0
+      '@pennacchi/editor-tool-change-mode': ^0.1.0
+      '@pennacchi/editor-tool-save': ^0.1.0
+      '@pennacchi/icon-set': ^0.1.0
+      '@pennacchi/persistence-adapter-console': ^0.1.0
       '@types/node': ^16.7.10
       esbuild: ^0.13.1
       gulp: ^4.0.2
@@ -650,7 +654,7 @@ importers:
 
   packages/icon-set:
     specifiers:
-      '@pennacchi/core': ^1.0.0
+      '@pennacchi/core': ^0.1.0
       '@types/node': ^16.7.10
       esbuild: ^0.13.1
       gulp: ^4.0.2
@@ -675,7 +679,7 @@ importers:
 
   packages/persistence-adapter-console:
     specifiers:
-      '@pennacchi/core': ^1.0.0
+      '@pennacchi/core': ^0.1.0
       '@types/node': ^16.7.10
       gulp: ^4.0.2
       gulp-typescript: ^6.0.0-alpha.1
@@ -699,7 +703,7 @@ importers:
       '@babel/core': ^7.16.12
       '@babel/preset-env': ^7.16.11
       '@babel/preset-typescript': ^7.16.7
-      '@pennacchi/core': workspace:^1.0.0
+      '@pennacchi/core': ^0.1.0
       '@types/jest': ^27.4.0
       '@types/node': ^16.7.10
       babel-jest: ^27.4.6
@@ -2094,6 +2098,16 @@ packages:
       human-id: 1.0.2
       prettier: 1.19.1
     dev: true
+
+  /@floating-ui/core/0.6.1:
+    resolution: {integrity: sha512-Y30eVMcZva8o84c0HcXAtDO4BEzPJMvF6+B7x7urL2xbAqVsGJhojOyHLaoQHQYjb6OkqRq5kO+zeySycQwKqg==}
+    dev: false
+
+  /@floating-ui/dom/0.4.1:
+    resolution: {integrity: sha512-VAdIkn+zc4VB3pSemBk2JwjXlbVEBUbQft4V5jGpUeA9Vxd1fQD5eL3dMIMLVW003NYCOoW42JjjyBPNTpr8uQ==}
+    dependencies:
+      '@floating-ui/core': 0.6.1
+    dev: false
 
   /@istanbuljs/load-nyc-config/1.1.0:
     resolution: {integrity: sha512-VjeHSlIzpv/NyD3N0YuHfXOPDIixcA1q2ZV98wsMqcYlPmv2n3Yb2lYP9XMElnaFVXg5A7YLTeLu6V84uQDjmQ==}

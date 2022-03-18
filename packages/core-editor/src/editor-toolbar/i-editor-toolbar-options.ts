@@ -1,6 +1,7 @@
 import { IGUIElementOptions } from "@pennacchi/core/dist/gui-element/i-gui-element-options";
-import { PositionName } from "@pennacchi/core/dist/types/position-name";
+import { Placement } from "@pennacchi/core/dist/types/placement";
 
 export interface IEditorToolbarOptions extends IGUIElementOptions {
-    position?: PositionName;
+    placement?: Placement;
+    placementRelativeTo?: "text-selection" | "content-object";
 };

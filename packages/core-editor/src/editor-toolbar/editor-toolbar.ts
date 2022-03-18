@@ -1,3 +1,4 @@
+import { computePosition } from "@floating-ui/dom";
 import { EditorGUIElement } from "../editor-gui-element";
 import { EventMapCore } from "@pennacchi/core/dist/maps/event-map-core";
 import { getObjectProperty } from "@pennacchi/core/dist/utilities/getObjectProperty";
@@ -5,7 +6,7 @@ import { IContentObject } from "@pennacchi/core-content-object/dist/i-content-ob
 import { IEditor } from "../editor/i-editor";
 import { IEditorToolbar } from "./i-editor-toolbar";
 import { IEditorToolbarOptions } from "./i-editor-toolbar-options";
-import { PositionName } from "@pennacchi/core/dist/types/position-name";
+import { Placement } from "@pennacchi/core/dist/types/placement";
 import { property } from "lit/decorators.js";
 
 export abstract class EditorToolbar extends EditorGUIElement implements IEditorToolbar {
@@ -15,11 +16,12 @@ export abstract class EditorToolbar extends EditorGUIElement implements IEditorT
     /*                                 PROPERTIES                                 */
     /* -------------------------------------------------------------------------- */
 
-    @property({attribute: "position", type: String, reflect: true })
-    private __position: PositionName;
+    @property({attribute: "placement", type: String, reflect: true })
+    private __placement: Placement;
 
     private __contentObjectFocused?: IContentObject;
     private readonly __editor: IEditor;
+    private readonly __placementRelativeTo: "text-selection" | "content-object";
 
 
     /* -------------------------------------------------------------------------- */
@@ -29,7 +31,8 @@ export abstract class EditorToolbar extends EditorGUIElement implements IEditorT
     public constructor(editor: IEditor, options: IEditorToolbarOptions) {
         super(options);
         this.__editor = editor;
-        this.__position = getObjectProperty<PositionName>(options, "position", "bottom-left");
+        this.__placement = getObjectProperty<Placement>(options, "placement", "bottom-start");
+        this.__placementRelativeTo = getObjectProperty(options, "placementRelativeTo", "content-object");
     }
 
 
@@ -45,8 +48,8 @@ export abstract class EditorToolbar extends EditorGUIElement implements IEditorT
         return this.__editor;
     }
 
-    public get position(): PositionName {
-        return this.__position;
+    public get placement(): Placement {
+        return this.__placement;
     }
 
     public hasContentObjectFocused(): boolean {
@@ -56,54 +59,40 @@ export abstract class EditorToolbar extends EditorGUIElement implements IEditorT
     public override attributeChangedCallback(name: string, valueOld: string, valueNew: string): void {
         super.attributeChangedCallback(name, valueOld, valueNew);
 
-        if (name === "position") {
+        if (name === "placement") {
             this.DOMApi.replaceClass(valueOld, valueNew);
             return;
         }
     }
 
-    public calculatePosition(): IEditorToolbar {
-        if (!this.hasContentObjectFocused())
-            return this;
+    public updatePlacement(): IEditorToolbar | undefined {
+        if (!this.__contentObjectFocused)
+            return undefined;
 
-        const coPosOnPage = this.contentObjectFocused.DOMApi.getPositionOnPage();
+        let reference: HTMLElement;
 
-        let positionCSS = "position: absolute; ";
+        if (this.__placementRelativeTo === "content-object") {
+            reference = this.__contentObjectFocused;
+        } else {
+            reference = this.__contentObjectFocused.textSelection.selectionRaw.anchorNode as HTMLElement;
 
-        switch(this.position) {
-            case "bottom-left": {
-                positionCSS += `left: ${coPosOnPage.bottomLeft.x}px; top: ${coPosOnPage.bottomLeft.y}px;`;
-                break;
-            }
-
-            case "bottom-right": {
-                positionCSS += `right: ${coPosOnPage.bottomRight.x}px; top: ${coPosOnPage.bottomRight.y}px;`;
-                break;
-            }
-
-            case "top-left": {
-                positionCSS += `left: ${coPosOnPage.topLeft.x}px; top: ${coPosOnPage.topLeft.y}px;`;
-                break;
-            }
-
-            case "top-right": {
-                positionCSS += `right: ${coPosOnPage.topRight.x}px; top: ${coPosOnPage.topRight.y}px;`;
-                break;
-            }
-
-            default: {
-                positionCSS += `left: ${coPosOnPage.bottomLeft.x}px; top: ${coPosOnPage.bottomLeft.y}px;`;
-            }
+            if (reference.nodeType !== 1)
+                reference = reference.parentElement;
         }
 
-        this.style.cssText = positionCSS;
+        computePosition(reference, this, {
+            placement: this.__placement,
+        })
+            .then((result) => {
+                this.style.cssText = `position: absolute; left: ${result.x}px; top: ${result.y}px;`;
+            })
 
         return this;
     }
 
     public override hide(): IEditorToolbar | undefined {
         this.removeEventListeners().resetState();
-        super.hide();
+        super.hide("collapse");
         return this;
     }
 
@@ -116,9 +105,11 @@ export abstract class EditorToolbar extends EditorGUIElement implements IEditorT
 
         this.__contentObjectFocused = contentObjectFocused;
         this.__contentObjectFocused.DOMApi.addClass("pnncch-co--toolbar-attached");
+
         this.registerEventListeners();
         super.show();
-        return this.calculatePosition();
+
+        return this.updatePlacement();
     }
 
 

@@ -46,7 +46,7 @@ export class EditorToolbarInlineFormatting extends EditorToolbar implements IEdi
 
         this.DOMApi.addClass(ContentObjectToolbarClassName);
 
-        return html`<menu></menu>`;
+        return html`<menu><li>Toolbar Inline Formatting</li></menu>`;
     }
 
 
@@ -54,10 +54,6 @@ export class EditorToolbarInlineFormatting extends EditorToolbar implements IEdi
     /*                          USER INTERACTION HANDLING                         */
     /* -------------------------------------------------------------------------- */
 
-
-    /* -------------------------------------------------------------------------- */
-    /*                                     API                                    */
-    /* -------------------------------------------------------------------------- */
 
     /* -------------------------------------------------------------------------- */
     /*                                     API                                    */
