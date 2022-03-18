@@ -6,6 +6,7 @@ export * from "./hide-mode";
 export * from "./icon-name";
 export * from "./layout-type";
 export * from "./occurence-result";
+export * from "./placement-relative-to";
 export * from "./placement";
 export * from "./position-name";
 export * from "./simple-map";
