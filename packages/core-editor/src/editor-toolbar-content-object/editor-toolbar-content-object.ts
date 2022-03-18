@@ -70,7 +70,7 @@ export class EditorToolbarContentObject extends EditorToolbar implements IEditor
         if (tool.ui.type === "dropdown")
             return this.renderToolAsDropdown(tool);
 
-        const error = new Error("[ContentObjectToolbar#renderTool] An error occured");
+        const error = new Error("[EditorToolbarContentObject#renderTool] An error occured");
         error.message = `Cannot render unknown tool type >${tool.ui.type}<.`;
         throw error;
     }
@@ -86,7 +86,7 @@ export class EditorToolbarContentObject extends EditorToolbar implements IEditor
 
     private renderToolAsDropdown(tool: ITool): TemplateResult {
         if (!tool.ui.values || tool.ui.values.length <= 0) {
-            const error = new Error("[ContentObjectToolbar#renderToolAsDropdown] An error occured");
+            const error = new Error("[EditorToolbarContentObject#renderToolAsDropdown] An error occured");
             error.message = `No dropdown values defined`;
             throw error;
         }
