@@ -108,15 +108,15 @@ export abstract class GUIElement extends LitElement implements IGUIElement {
 
         const actions: { [id: string]: (valueOld: string, valueNew: string) => void } = {
             "direction": (valueOld: string, valueNew: string): void => {
-                this.__DOMApi.replaceClass(valueOld, `has-direction-${valueNew}`);
+                this.__DOMApi.replaceClass(`has-direction-${valueOld}`, `has-direction-${valueNew}`);
                 return;
             },
             "size": (valueOld: string, valueNew: string): void => {
-                this.__DOMApi.replaceClass(valueOld, `has-size-${valueNew}`);
+                this.__DOMApi.replaceClass(`has-size-${valueOld}`, `has-size-${valueNew}`);
                 return;
             },
             "visibility": (valueOld: string, valueNew: string): void => {
-                this.__DOMApi.replaceClass(valueOld, `has-visibility-${valueNew}`);
+                this.__DOMApi.replaceClass(`has-visibility-${valueOld}`, `has-visibility-${valueNew}`);
                 return;
             },
         }
@@ -129,17 +129,17 @@ export abstract class GUIElement extends LitElement implements IGUIElement {
         return action(valueOld, valueNew);
     }
 
-    public hide(hideMode: HideMode = "hidden"): IGUIElement {
+    public hide(hideMode: HideMode = "collapse"): IGUIElement {
         this.__visibility = hideMode;
         return this;
     }
 
-    public show(...params: any[]): IGUIElement {
+    public show(): IGUIElement {
         this.__visibility = "visible";
         return this;
     }
 
-    public toggle(hideMode: HideMode = "hidden"): IGUIElement {
+    public toggle(hideMode: HideMode = "collapse"): IGUIElement {
         if (this.__visibility === "visible")
             return this.hide(hideMode);
 
