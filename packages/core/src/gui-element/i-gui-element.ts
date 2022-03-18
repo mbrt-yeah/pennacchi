@@ -19,6 +19,7 @@ export interface IGUIElement extends LitElement {
     set visibility(visibility: Visibility);
 
     hide(hideMode?: HideMode): IGUIElement;
+    isVisible(): boolean;
     show(...params: any[]): IGUIElement;
     toggle(hideMode?: HideMode): IGUIElement;
 };

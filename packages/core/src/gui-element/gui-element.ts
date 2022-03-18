@@ -134,6 +134,10 @@ export abstract class GUIElement extends LitElement implements IGUIElement {
         return this;
     }
 
+    public isVisible(): boolean {
+        return this.__visibility === "visible";
+    }
+
     public show(): IGUIElement {
         this.__visibility = "visible";
         return this;
