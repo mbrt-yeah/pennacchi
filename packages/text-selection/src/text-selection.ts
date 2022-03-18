@@ -105,4 +105,19 @@ export class TextSelection {
             && this.__selectionRaw.focusOffset === selectionRaw.focusOffset
             && this.__selectionRaw.rangeCount === selectionRaw.rangeCount;
     }
+
+    public isInContextObject(): boolean  {
+        if (!this.__selectionRaw)
+            this.__selectionRaw = document.getSelection()
+
+        let anchorNode = this.__selectionRaw.anchorNode as HTMLElement;
+
+        if (anchorNode.nodeType !== 1)
+            anchorNode = anchorNode.parentElement;
+
+        return anchorNode && (
+            (anchorNode.classList && anchorNode.classList.contains(ContentObjectClassName)) ||
+            anchorNode.closest(`.${ContentObjectClassName}`) !== null
+        );
+    }
 };
