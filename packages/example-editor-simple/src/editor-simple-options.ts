@@ -10,8 +10,10 @@ import { IEditorOptions } from "@pennacchi/core-editor/dist/editor/i-editor-opti
 import { Paragraph } from "@pennacchi/content-object-paragraph/dist/paragraph";
 import { PersistenceAdapterConsole } from "@pennacchi/persistence-adapter-console/dist/persistence-adapter-console"
 import { ToolsContentObjectDefault } from "./tools-content-object-default";
+import { ToolsInlineFormattingDefault } from "./tools-inline-formatting-default";
 
 export const EditorSimpleOptions: IEditorOptions = {
+
     allowedContentObjects: [
         {
             cstr: Blockquote,
@@ -175,16 +177,22 @@ export const EditorSimpleOptions: IEditorOptions = {
             occurrence: { min: 0 },
         },
     ],
+
     layoutType: "ordered",
+
     persistenceAdapters: [
         new PersistenceAdapterConsole()
     ],
+
     tools: [
         new EditorToolSave(),
         new EditorToolChangeMode()
     ],
+
     toolsContentObject: ToolsContentObjectDefault,
-    toolsInlineFormatting: [],
+
+    toolsInlineFormatting: ToolsInlineFormattingDefault,
+
     ui: {
         iconSet: IconSet,
         showFormattingSymbols: true,
