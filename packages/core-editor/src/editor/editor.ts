@@ -1,29 +1,27 @@
 import { BooleanString } from "@pennacchi/core/dist/types/boolean-string";
-import { ContentObject } from "@pennacchi/core-content-object/dist/content-object";
-import { ContentObjectClassName } from "@pennacchi/core/dist/statics";
 import { ContentObjectCommandInsertSiblingAfter } from "../content-object-commands/content-object-command-insert-sibling-after";
 import { ContentObjectSubtype } from "@pennacchi/core-content-object/dist/content-object-subtype";
-import { ContentObjectSubtypeMap } from "@pennacchi/core-content-object/dist/content-object-subtype-map";
-import { ContentObjectToolbarClassName, EditorClassName } from "@pennacchi/core/dist/statics";
 import { customElement } from "lit/decorators.js";
 import { EditorCanvas } from "../editor-canvas/editor-canvas";
+import { EditorClassName } from "@pennacchi/core/dist/statics";
 import { EditorGUIElement } from "../editor-gui-element";
 import { EditorMenuPrimary } from "../editor-menu-primary/editor-menu-primary";
 import { EditorMenuSecondary } from "../editor-menu-secondary/editor-menu-secondary";
 import { EditorToolbarContentObject } from "../editor-toolbar-content-object/editor-toolbar-content-object";
+import { EditorToolbarContentToggleStrategy } from "../editor-toolbar-content-object/editor-toolbar-content-toggle-strategy";
 import { EditorToolbarInlineFormatting } from "../editor-toolbar-inline-formatting/editor-toolbar-inline-formatting";
+import { EditorToolbarInlineToggleStrategy } from "../editor-toolbar-inline-formatting/editor-toolbar-inline-toggle-strategy";
 import { EventMapCore } from "@pennacchi/core/dist/maps/event-map-core";
 import { getObjectProperty } from "@pennacchi/core/dist/utilities/getObjectProperty";
 import { IEditor } from "./i-editor";
 import { IEditorOptions } from "./i-editor-options";
 import { IEditorToolbarContentObject } from "../editor-toolbar-content-object/i-editor-toolbar-content-object";
 import { IEditorToolbarInlineFormatting } from "../editor-toolbar-inline-formatting/i-editor-toolbar-inline-formatting";
-import { KeyboardEventPayload } from "@pennacchi/core-content-object/dist/event-payloads/keyboard-event-payload";
-import { TextSelection } from "@pennacchi/text-selection/dist/text-selection";
 
 import "@pennacchi/component-library/dist/buttons/button";
 import "@pennacchi/component-library/dist/icons/icon-svg";
-import { IContentObject } from "@pennacchi/core-content-object";
+import { IContentObject } from "@pennacchi/core-content-object/dist/i-content-object";
+import { EditorEventHandlingStrategy } from "./editor-event-handling-strategy";
 
 @customElement("pnncch-editor")
 export class Editor extends EditorGUIElement implements IEditor {
@@ -75,120 +73,27 @@ export class Editor extends EditorGUIElement implements IEditor {
     }
 
     private registerEventListener(): Editor {
-        document.addEventListener(("click"), (event: MouseEvent): void => {
-            return this.handleClickEvent(event);
-        });
+        [
+            "click",
+            "dblclick",
+            "mouseup",
+            EventMapCore["pnncch::click"],
+            EventMapCore["pnncch::keydown"],
+            EventMapCore["pnncch::keyup"],
+            EventMapCore["pnncch::selectionchange"],
+            EventMapCore["pnncch::selectstart"]
+        ].forEach((eventName: string) => {
+            document.addEventListener((eventName), (event: Event) => {
+                event.preventDefault();
+                event.stopPropagation();
 
-        this.addEventListener(EventMapCore["pnncch::click"], (event: Event): void => {
-            return this.handlePnncchClickEvent(event as CustomEvent<ContentObject>);
-        });
-
-        this.addEventListener(EventMapCore["pnncch::keydown"], (event: Event): void => {
-            return this.handlePnncchKeydownEvent(event as CustomEvent<KeyboardEventPayload>);
-        });
-
-        this.addEventListener(EventMapCore["pnncch::selectstart"], (event: Event): void => {
-            return this.handlePnncchSelectStartEvent(event as CustomEvent<ContentObject>);
-        });
-
-        this.addEventListener(EventMapCore["pnncch::selectionchange"], (event: Event): void => {
-            return this.handlePnncchSelectionChangeEvent(event as CustomEvent<ContentObject>);
+                EditorToolbarContentToggleStrategy.execute(event, this);
+                EditorToolbarInlineToggleStrategy.execute(event, this);
+                EditorEventHandlingStrategy.execute(event, this);
+            });
         });
 
         return this;
-    }
-
-
-    /* -------------------------------------------------------------------------- */
-    /*                               EVENT HANDLING                               */
-    /* -------------------------------------------------------------------------- */
-
-    private handleClickEvent(event: MouseEvent): void {
-        const target = event.target as HTMLElement;
-
-        if (!target 
-            || !this.isToolbarContentObjectVisible() 
-            || target.closest(`.${ContentObjectClassName}`) 
-            || target.closest(`.${ContentObjectToolbarClassName}`)
-        ) return;
-
-        this.__toolbarContentObject.hide();
-        return;
-    }
-
-    private handlePnncchClickEvent(event: CustomEvent<ContentObject>): void {
-        event.preventDefault();
-        event.stopPropagation();
-        this.showContentObjectToolbar(event.detail);
-        return;
-    }
-
-    private handlePnncchKeydownEvent(event: CustomEvent<KeyboardEventPayload>): void {
-        event.preventDefault();
-        event.stopPropagation();
-
-        this.hideContentObjectToolbar();
-        this.toolbarInlineFormatting.hide();
-
-        if (event.detail && event.detail.key === "Enter" && event.target) {
-            this.insertContentObjectAfter(
-                event.target as ContentObject, 
-                ContentObjectSubtypeMap.paragraph
-            );
-            return;
-        }
-    }
-
-    private handlePnncchSelectStartEvent(event: CustomEvent<ContentObject>): void {
-        event.preventDefault();
-        event.stopPropagation();
-        this.toolbarInlineFormatting.hide();
-    }
-
-    private handlePnncchSelectionChangeEvent(event: CustomEvent<ContentObject>): void {
-        event.preventDefault();
-        event.stopPropagation();
-
-        const contentObject = event.detail;
-
-        if (!contentObject || !contentObject.textSelection || contentObject.textSelection.isEmpty()) {
-            this.toolbarInlineFormatting.hide();
-            return;
-        }
-
-        this.toolbarInlineFormatting.show(contentObject);
-        return;
-    }
-
-    private insertContentObjectAfter(
-        contentObjectBefore: ContentObject,
-        contentObjectAfterType: ContentObjectSubtype
-    ): void {
-        const contentObjectAfter = this.createContentObject(contentObjectAfterType);
-
-        if (!contentObjectAfter)
-            return;
-
-        return this.executeCommand(
-            new ContentObjectCommandInsertSiblingAfter(
-                contentObjectBefore, contentObjectAfter
-            )
-        );
-    }
-
-    private hideContentObjectToolbar(): void {
-        if (!this.__toolbarContentObject)
-            return;
-
-        this.__toolbarContentObject.hide();
-        return;
-    }
-
-    private showContentObjectToolbar(contentObject: IContentObject): void {
-        if (!this.__toolbarContentObject)
-            return;
-
-        this.__toolbarContentObject.show(contentObject);
     }
 
 
@@ -313,26 +218,34 @@ export class Editor extends EditorGUIElement implements IEditor {
     }
 
     public isMenuPrimaryActivated(): boolean {
-        return getObjectProperty<BooleanString>(this.__options, "ui.menuPrimary.activated", "true") === "true";
+        return getObjectProperty<BooleanString>(this.options, "ui.menuPrimary.activated", "true") === "true";
     }
 
     public isMenuSecondaryActivated(): boolean {
-        return getObjectProperty<BooleanString>(this.__options, "ui.menuSecondary.activated", "true") === "true";
+        return getObjectProperty<BooleanString>(this.options, "ui.menuSecondary.activated", "true") === "true";
     }
 
     public isToolbarContentObjectActived(): boolean {
-        return getObjectProperty<BooleanString>(this.__options, "ui.toolbarContentObject.activated", "true") === "true";
-    }
-
-    public isToolbarContentObjectVisible(): boolean {
-        return this.__toolbarContentObject && this.__toolbarContentObject.visibility === "visible";
+        return getObjectProperty<BooleanString>(this.options, "ui.toolbarContentObject.activated", "true") === "true";
     }
 
     public isToolbarInlineFormattingActived(): boolean {
-        return getObjectProperty<BooleanString>(this.__options, "ui.toolbarInlineFormatting.activated", "true") === "true";
+        return getObjectProperty<BooleanString>(this.options, "ui.toolbarInlineFormatting.activated", "true") === "true";
     }
 
-    public isToolbarInlineFormattingVisible(): boolean {
-        return this.__toolbarInlineFormatting && this.__toolbarInlineFormatting.visibility === "visible";
+    public insertContentObjectAfter(
+        contentObjectBefore: IContentObject,
+        contentObjectAfterType: ContentObjectSubtype
+    ): void {
+        const contentObjectAfter = this.createContentObject(contentObjectAfterType);
+
+        if (!contentObjectAfter)
+            return;
+
+        return this.executeCommand(
+            new ContentObjectCommandInsertSiblingAfter(
+                contentObjectBefore, contentObjectAfter
+            )
+        );
     }
 };

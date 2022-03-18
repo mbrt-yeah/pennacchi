@@ -1,3 +1,5 @@
+import { ContentObjectSubtype } from "@pennacchi/core-content-object/dist/content-object-subtype";
+import { IContentObject } from "@pennacchi/core-content-object/dist/i-content-object";
 import { IEditorCanvas } from "../editor-canvas/i-editor-canvas";
 import { IEditorMenuPrimary } from "../editor-menu-primary/i-editor-menu-primary";
 import { IEditorMenuSecondary } from "../editor-menu-secondary/i-editor-menu-secondary";
@@ -20,7 +22,6 @@ export interface IEditor {
     isMenuPrimaryActivated(): boolean;
     isMenuSecondaryActivated(): boolean;
     isToolbarContentObjectActived(): boolean;
-    isToolbarContentObjectVisible(): boolean;
     isToolbarInlineFormattingActived(): boolean;
-    isToolbarInlineFormattingVisible(): boolean;
+    insertContentObjectAfter(contentObjectBefore: IContentObject, contentObjectAfterType: ContentObjectSubtype): void;
 };
