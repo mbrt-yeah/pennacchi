@@ -1,4 +1,5 @@
 import { AncoraCommand } from "@pennacchi/ancora/dist/blueprints/ancora-command";
+import { IconNameMap } from "@pennacchi/core/dist/maps/icon-name-map";
 import { IConstructor } from "@pennacchi/core/dist/interfaces/i-constructor";
 import { ITool } from "@pennacchi/core/dist/tool/i-tool";
 import { IToolUI } from "@pennacchi/core/dist/tool/i-tool-ui";
@@ -14,9 +15,10 @@ export class InlineFormattingToolBold implements ITool {
         this.id = ToolIdMap.bold;
         this.command = undefined;
         this.ui =  {
-            type: "button",
-            description: "Formats a selected text bold",
+            description: "Formats a selected text in bold",
+            icon: { id: IconNameMap.bold, },
             label: "Bold",
+            type: "button",
         };
     }
 };
