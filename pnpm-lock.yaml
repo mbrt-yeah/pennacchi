@@ -615,6 +615,7 @@ importers:
       '@pennacchi/editor-tool-change-mode': ^0.1.0
       '@pennacchi/editor-tool-save': ^0.1.0
       '@pennacchi/icon-set': ^0.1.0
+      '@pennacchi/inline-formatting-tool-bold': ^0.0.0
       '@pennacchi/persistence-adapter-console': ^0.1.0
       '@types/node': ^16.7.10
       esbuild: ^0.13.1
@@ -640,6 +641,7 @@ importers:
       '@pennacchi/editor-tool-change-mode': link:../editor-tool-change-mode
       '@pennacchi/editor-tool-save': link:../editor-tool-save
       '@pennacchi/icon-set': link:../icon-set
+      '@pennacchi/inline-formatting-tool-bold': link:../inline-formatting-tool-bold
       '@pennacchi/persistence-adapter-console': link:../persistence-adapter-console
     devDependencies:
       '@types/node': 16.10.6
@@ -673,6 +675,41 @@ importers:
       gulp-esbuild: 0.8.7
       gulp-typescript: 6.0.0-alpha.1_typescript@4.4.4
       intern: 4.10.0_a02c8ef9888e8766398859e47b6fa6f8
+      rimraf: 3.0.2
+      tslib: 2.3.1
+      typescript: 4.4.4
+
+  packages/inline-formatting-tool-bold:
+    specifiers:
+      '@babel/core': ^7.16.12
+      '@babel/preset-env': ^7.16.11
+      '@babel/preset-typescript': ^7.16.7
+      '@pennacchi/ancora': ^0.1.0
+      '@pennacchi/core': ^0.1.0
+      '@pennacchi/core-content-object': ^0.1.0
+      '@types/jest': ^27.4.0
+      '@types/node': ^16.7.10
+      babel-jest: ^27.4.6
+      gulp: ^4.0.2
+      gulp-typescript: ^6.0.0-alpha.1
+      jest: ^27.4.7
+      rimraf: ^3.0.2
+      tslib: ^2.3.1
+      typescript: ^4.4.2
+    dependencies:
+      '@pennacchi/ancora': link:../ancora
+      '@pennacchi/core': link:../core
+      '@pennacchi/core-content-object': link:../core-content-object
+    devDependencies:
+      '@babel/core': 7.16.12
+      '@babel/preset-env': 7.16.11_@babel+core@7.16.12
+      '@babel/preset-typescript': 7.16.7_@babel+core@7.16.12
+      '@types/jest': 27.4.0
+      '@types/node': 16.10.6
+      babel-jest: 27.4.6_@babel+core@7.16.12
+      gulp: 4.0.2
+      gulp-typescript: 6.0.0-alpha.1_typescript@4.4.4
+      jest: 27.4.7
       rimraf: 3.0.2
       tslib: 2.3.1
       typescript: 4.4.4
