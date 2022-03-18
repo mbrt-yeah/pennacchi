@@ -1,3 +1,4 @@
+import { ContentObjectClassName } from "@pennacchi/core/dist/statics";
 import { IPosition } from "@pennacchi/core/dist/interfaces/i-position";
 
 export class TextSelection {
@@ -21,19 +22,9 @@ export class TextSelection {
     }
 
     private registerEventListener(): void {
-        document.addEventListener("selectionchange", (event: Event) => {
-            this.handleSelectionGesture(event);
+        document.addEventListener("selectionchange", (): void => {
+            this.__selectionRaw = document.getSelection();
         });
-    }
-
-
-    /* -------------------------------------------------------------------------- */
-    /*                               EVENT HANDLING                               */
-    /* -------------------------------------------------------------------------- */
-
-    private handleSelectionGesture(event: Event): void {
-        event.stopPropagation();
-        this.__selectionRaw = document.getSelection();
     }
 
 
