@@ -1,8 +1,10 @@
+/* -------------------------------------------------------------------------- */
+/*                                  VARIABLES                                 */
+/* -------------------------------------------------------------------------- */
+
 :root {
 
-    /* -------------------------------------------------------------------------- */
-    /*                                 BASE STYLES                                */
-    /* -------------------------------------------------------------------------- */
+    /* -------------------------- BASE STYLES VARIABLES ------------------------- */
 
     --base-size: 16px;
     --line-height: 1.5;
@@ -53,9 +55,7 @@
     --size-6l: calc(var(--size-m) * 2.0000);
 
 
-    /* -------------------------------------------------------------------------- */
-    /*                           BUTTON STYLE VARIABLES                           */
-    /* -------------------------------------------------------------------------- */
+    /* ------------------------- BUTTON STYLE VARIABLES ------------------------- */
 
     --pnncch-button-prefix-margin: 0 var(--size-4s) 0 0;
     --pnncch-button-label-margin: 0;
@@ -77,9 +77,7 @@
     --pnncch-button-l-padding: var(--size-3s) var(--size-2s);
 
 
-    /* -------------------------------------------------------------------------- */
-    /*                            ICON STYLES VARIABLES                           */
-    /* -------------------------------------------------------------------------- */
+    /* -------------------------- ICON STYLES VARIABLES ------------------------- */
 
     --pnncch-icon-s-height: var(--size-m);
     --pnncch-icon-s-width:  var(--size-m);
@@ -91,6 +89,30 @@
     --pnncch-icon-l-width:  var(--size-6l);
 }
 
+
+/* -------------------------------------------------------------------------- */
+/*                               HELPER CLASSES                               */
+/* -------------------------------------------------------------------------- */
+
+.has-visibility-collapse {
+    display: none;
+}
+
+.has-visibility-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                           GLOBAL LAYOUT & DESIGN                           */
+/* -------------------------------------------------------------------------- */
 
 html, body {
     margin: 0;
@@ -132,20 +154,10 @@ menu li:last-child {
     margin-right: 0;
 }
 
-.hidden {
-    display: none;
-}
 
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    border: 0;
-}
+/* -------------------------------------------------------------------------- */
+/*                              EDITOR COMPONENT                              */
+/* -------------------------------------------------------------------------- */
 
 .pnncch-editor {
     background-color: #fefefe;
@@ -199,13 +211,14 @@ menu li:last-child {
     margin-bottom: var(--size-6l);
 }
 
-.pnncch-editor__content-object-toolbar {
+.pnncch-editor__content-object-toolbar {}
 
-}
 
-.pnncch-co {
+/* -------------------------------------------------------------------------- */
+/*                          CONTENT OBJECT COMPONENT                          */
+/* -------------------------------------------------------------------------- */
 
-}
+.pnncch-co {}
 
 .pnncch-co--toolbar-attached {
     border: 1px dotted #000;
@@ -217,6 +230,9 @@ menu li:last-child {
 }
 
 .pnncch-co__contents {}
+
+
+/* ------------------- CONTENT OBJECT BLOCKQUOTE COMPONENT ------------------ */
 
 .pnncch-co--blockquote {
     display: block;
@@ -243,12 +259,18 @@ menu li:last-child {
     justify-content: flex-end;
 }
 
+
+/* ------------------- CONTENT OBJECT PARAGRAPH COMPONENT ------------------- */
+
 .pnncch-co--paragraph {
     display: block;
     font-size: var(--font-size-2l-px);
     font-size: var(--font-size-2l-rem);
     margin-bottom: var(--size-3l);
 }
+
+
+/* ------------------- CONTENT OBJECT HEADING 1 COMPONENT ------------------- */
 
 .pnncch-co--heading1 {
     display: block;
@@ -257,6 +279,9 @@ menu li:last-child {
     line-height: 1;
     margin-bottom: calc(4 * var(--size-m));
 }
+
+
+/* ------------------- CONTENT OBJECT HEADING 2 COMPONENT ------------------- */
 
 .pnncch-co--heading2 {
     display: block;
