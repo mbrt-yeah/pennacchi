@@ -7,6 +7,7 @@ import { IEditor } from "../editor/i-editor";
 import { IEditorToolbar } from "./i-editor-toolbar";
 import { IEditorToolbarOptions } from "./i-editor-toolbar-options";
 import { Placement } from "@pennacchi/core/dist/types/placement";
+import { PlacementRelativeTo } from "@pennacchi/core/dist/types/placement-relative-to";
 import { property } from "lit/decorators.js";
 
 export abstract class EditorToolbar extends EditorGUIElement implements IEditorToolbar {
@@ -21,7 +22,7 @@ export abstract class EditorToolbar extends EditorGUIElement implements IEditorT
 
     private __contentObjectFocused?: IContentObject;
     private readonly __editor: IEditor;
-    private readonly __placementRelativeTo: "text-selection" | "content-object";
+    private readonly __placementRelativeTo: PlacementRelativeTo;
 
 
     /* -------------------------------------------------------------------------- */
@@ -32,7 +33,7 @@ export abstract class EditorToolbar extends EditorGUIElement implements IEditorT
         super(options);
         this.__editor = editor;
         this.__placement = getObjectProperty<Placement>(options, "placement", "bottom-start");
-        this.__placementRelativeTo = getObjectProperty(options, "placementRelativeTo", "content-object");
+        this.__placementRelativeTo = getObjectProperty<PlacementRelativeTo>(options, "placementRelativeTo", "content-object");
     }
 
 
@@ -40,16 +41,20 @@ export abstract class EditorToolbar extends EditorGUIElement implements IEditorT
     /*                                     API                                    */
     /* -------------------------------------------------------------------------- */
 
-    public get contentObjectFocused(): IContentObject {
+    public get contentObjectFocused(): IContentObject | undefined {
         return this.__contentObjectFocused;
     }
 
-    public get editor(): IEditor {
+    public get editor(): IEditor | undefined {
         return this.__editor;
     }
 
     public get placement(): Placement {
         return this.__placement;
+    }
+
+    public get placementRelativeTo(): PlacementRelativeTo {
+        return this.__placementRelativeTo;
     }
 
     public hasContentObjectFocused(): boolean {
