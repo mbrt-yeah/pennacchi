@@ -46,7 +46,7 @@ export class EditorToolbarContentObject extends EditorToolbar implements IEditor
     /* -------------------------------------------------------------------------- */
 
     public override render(): TemplateResult {
-        if (!this.contentObjectFocused 
+        if (!this.hasContentObjectFocused() 
             || !this.__toolsFinal
             || this.__toolsFinal.length === 0
         ) 
