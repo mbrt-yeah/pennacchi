@@ -1,6 +1,7 @@
 export type IconName = 
       "arrowDown"
     | "arrowUp"
+    | "bold"
     | "blockquote"
     | "diskette"
     | "eye"
@@ -10,10 +11,13 @@ export type IconName =
     | "heading4"
     | "heading5"
     | "heading6"
+    | "italic"
     | "menu"
     | "paragraph"
     | "pencil"
     | "plus"
+    | "strikethrough"
     | "trashBin"
+    | "underline"
     | "x";
 

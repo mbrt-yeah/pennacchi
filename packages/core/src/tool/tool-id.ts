@@ -1,7 +1,11 @@
 export type ToolId = 
       "movedown"
+    | "bold"
     | "changemode"
+    | "italic"
     | "moveup"
     | "remove"
     | "replace"
-    | "save";
+    | "save"
+    | "strikethrough"
+    | "underline";
