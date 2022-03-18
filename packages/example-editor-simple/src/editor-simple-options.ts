@@ -187,6 +187,16 @@ export const EditorSimpleOptions: IEditorOptions = {
     toolsInlineFormatting: [],
     ui: {
         iconSet: IconSet,
-        showFormattingSymbols: true
+        showFormattingSymbols: true,
+        toolbarContentObject: {
+            placement: "bottom-start",
+            placementRelativeTo: "content-object",
+            visibility: "collapse",
+        },
+        toolbarInlineFormatting: {
+            placement: "top-start",
+            placementRelativeTo: "text-selection",
+            visibility: "collapse",
+        }
     }
 };
