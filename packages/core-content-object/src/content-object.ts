@@ -148,6 +148,13 @@ export abstract class ContentObject extends GUIElement implements IContentObject
 
             if ( target && target.closest(`.${ContentObjectContentWrapperClassName}`) )
                 this.__contents = this.querySelector("[contenteditable=true")?.innerHTML;
+
+            this.DOMApi.dispatchCustomEvent<KeyboardEventPayload>(EventMapCore["pnncch::keyup"], {
+                contentObject: this,
+                key: event.key,
+            });
+
+            return;
         });
 
         this.addEventListener(EventMapCore["pnncch::contentobjectready"], (event: Event) => {
